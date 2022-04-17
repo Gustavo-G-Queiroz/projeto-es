@@ -9,33 +9,63 @@
     <title>Group Finder UFABC</title>
 
     <!-- link to css file -->
-    <link rel="stylesheet" href="./../../../public/css/main.css">
+    <link rel="stylesheet" href="./../../../public/css/mobile.css">
+    <link rel="stylesheet" href="./../../../public/css/responsive.css">
 
-    <!-- font Open Sans -->
+    <!-- font family Open Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- font awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 
 <body>
 
     <header>
-        <div class="logo">Group Finder UFABC</div>
-        <div class="user-header">Olá, usuário</div>
+        <div class="logo">
+            <p>Group Finder <span>UFABC</span></p>
+        </div>
+
+        <div class="user-header">
+            <div>
+                <p>Olá, usuário</p>
+                <div class="user">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+
+            <div id="dropdown-profile">
+                <div>
+                    <p>Minha conta</p>
+                </div>
+                <hr>
+                <div>
+                    <p>Sair</p>
+                </div>
+            </div>
+        </div>
     </header>
 
     <div class="container">
         <aside>
             <div class="nav-menu">
-                <div class="classes">Turmas</div>
-                <div class="my-groups">Meus grupos</div>
-                <div class="new-group">Novo grupo</div>
+                <div class="nav-item active">
+                    <p>Turmas</p>
+                </div>
+                <div class="nav-item">
+                    <p>Meus grupos</p>
+                </div>
+                <div class="nav-item">
+                    <p>Novo grupo</p>
+                </div>
             </div>
         </aside>
 
         <main>
             <div class="search-classes">
-                <input type="search" name="" id="" placeholder="Pesquise por disciplinas">
+                <input type="search" name="" id="search-input" placeholder="Pesquise por disciplinas">
             </div>
 
             <div class="classes-list">
@@ -46,10 +76,19 @@
                             <th>Nome</th>
                         </tr>
                     </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>MA1MCTA022</td>
+                            <td>Engenharia de Software - A1 Matutino</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </main>
     </div>
+
+    <script src="./../../../public/js/script.js"></script>
 
 </body>
 
