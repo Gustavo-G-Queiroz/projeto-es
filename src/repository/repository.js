@@ -1,22 +1,31 @@
-function create(Model) {
+exports.create = function (Model) {
     return new Promise((resolve, reject) => {
-        Model.save(function (err, user) {
+        Model.save(function (err, data) {
             if (err) {
                 reject(err);
             }
-            resolve(user);
+            resolve(data);
         });
     });
 }
 
 
-function list(Model, queryParams) {
+exports.list = function (Model) {
     return new Promise((resolve, reject) => {
         Model.find({})
-            .limit(parseInt(queryParams.limit))
-            .exec(function (err, data) {
-                if (err) reject(err);
-                resolve(data);
-            });
-    });
+          .exec(function(err, data) {
+            if (err) reject(err);
+            resolve(data);
+          });
+      });
+}
+
+exports.findById = function (Model, id) {
+    return new Promise((resolve, reject) => {
+        Model.findById(id)
+          .exec(function(err, data) {
+            if (err) reject(err);
+            resolve(data);
+          });
+      });
 }
