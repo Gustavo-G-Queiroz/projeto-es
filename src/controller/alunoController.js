@@ -1,5 +1,21 @@
-var aluno = require('../model/aluno');
+const alunoService = require('../service/alunoService');
+var mongoose = require("mongoose");
 
-exports.test = function (req, res) {
-    res.send('Olá! Teste ao Controller');
+exports.create = function (req, res) {
+    alunoService.createAluno(req).then(() => {
+        res.send("Registro realizado");
+    });
 };
+
+exports.list = function (req, res) {
+    alunoService.listAluno().then(alunos =>{
+        res.send(alunos);
+    });
+}
+
+exports.find = function (req, res) {
+    alunoService.findAluno(req.params.id).then(aluno =>{
+        res.send(aluno);
+    });
+}
+

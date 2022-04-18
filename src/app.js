@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
-const route = require('./controller/route');
 const conector = require('./repository/conector')
+require('./model/aluno')
+require('./model/turma')
+const route = require('./controller/route');
+
 
 const database = conector.conectar();
 
@@ -16,10 +19,12 @@ database.once('connected', () => {
 
 const app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(route)
 
 let port = 8080;
 
 app.listen(port, () => {
-    console.log("Hello " + port);
+    console.log("Servidor ativo!");
 });
