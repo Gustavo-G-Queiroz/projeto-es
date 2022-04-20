@@ -1,0 +1,123 @@
+/* general */
+:root {
+    --gray-1: #F2F2F2;
+    --gray-2: #E5E5E5;
+    --gray-3: #C4C4C4;
+
+    --yellow: #FFFB9E;
+    --green: #006633;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: .8rem;
+    line-height: 1.5;
+}
+
+.container {
+    padding: 10%;
+    width: 100vw;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* group hangout */
+#presentation {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.3rem;
+}
+
+.logo p span {
+    display: block;
+}
+
+.group-hangout {
+    margin: 25px 0;
+}
+
+.group-hangout img {
+    width: 100%;
+}
+
+/* form sign up */
+#get-in-app h2 {
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+#get-in-app p {
+    font-weight: 300;
+}
+
+#__lpform_name_icon {
+    display: none;
+}
+
+#get-in-app input {
+    width: 100%;
+    background-image: none !important;
+
+    border: 1px solid var(--gray-1);
+    border-radius: 5px;
+    background: var(--gray-1);
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+    
+    outline: none;
+}
+
+#get-in-app input:focus {
+    border: 1px solid var(--green);
+}
+
+#get-in-app .input-group {
+    margin: 0.8rem 0;
+}
+
+#sign-up-button,
+#log-in-button {
+    width: 100%;
+
+    border: none;
+    border-radius: 5px;
+    background: var(--green);
+    color: #FFF;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+    outline: none;
+    cursor: pointer;
+}
+
+#get-in-app hr {
+    border: 1px solid var(--gray-2);
+    margin: 1rem 0;
+}
+
+#get-in-app p:last-child a {
+    font-weight: bold;
+    color: var(--green);
+    cursor: pointer;
+    text-decoration: none;
+}
