@@ -1,6 +1,9 @@
+require("dotenv").config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
+
 const conector = require('./repository/conector')
 require('./model/aluno')
 require('./model/turma')
@@ -23,7 +26,9 @@ app.set('views', './views');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
 app.use(route)
+
 app.use(express.static(__dirname + '/public'));
 
 let port = 8080;

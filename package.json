@@ -4,7 +4,8 @@
   "description": "Projeto Engenharia de Software 2022",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch src src/app.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,9 @@
     "ejs": "^3.1.7",
     "express": "^4.17.3",
     "mongoose": "^6.2.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "dotenv": "^16.0.0"
   }
 }
