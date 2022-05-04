@@ -1,7 +1,7 @@
 module.exports = {
     conectar: function () {
         const mongoose = require('mongoose')
-        const url = 'mongodb+srv://user_g_ufabc:<pass>@escluster.pm73m.mongodb.net/main_db?retryWrites=true&w=majority';
+        const url = 'mongodb+srv://user_g_ufabc:vdokizaq564d@escluster.pm73m.mongodb.net/main_db?retryWrites=true&w=majority';
 
         const connectionParams = {
             useNewUrlParser: true,
