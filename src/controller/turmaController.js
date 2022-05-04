@@ -12,3 +12,15 @@ exports.list = function (req, res) {
         res.send(turmas);
     });
 }
+
+exports.update = function (req, res) {
+    turmaService.updateGrupo(req).then(turma =>{
+        res.send(turma);
+    });
+}
+
+exports.createGrupo = function (req, res) {
+    turmaService.createGrupo(req).then(turma =>{
+        res.send(turma);
+    });
+}

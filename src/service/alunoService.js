@@ -5,6 +5,7 @@ const repository = require("../repository/repository");
 
 exports.createAluno = function (req) {
     return new Promise(function (resolve, reject) {
+        //hash senha
         let aluno = new Aluno(
             {
                 _id: req.body.id,

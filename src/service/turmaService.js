@@ -27,3 +27,44 @@ exports.createTurma = function (req) {
 exports.listTurma = function () {
     return repository.list(Turma);
 }
+
+exports.updateGrupo = function (req) {
+    return new Promise(function (resolve, reject) {
+        repository.findById(Turma, req.params.id).then(turma => {
+            for(var i in turma.grupos){
+                if(turma.grupos[i].id == req.body.idGrupo){
+                    turma.grupos[i].alunos.push(req.body.aluno);
+                    break;
+                }
+            }
+            repository
+            .create(turma)
+            .then(data => {
+                resolve({
+                    data: data
+                });
+            })
+            .catch(err => {
+                reject(err);
+            });
+        });
+    });
+}
+
+exports.createGrupo = function (req) {
+    return new Promise(function (resolve, reject) {
+        repository.findById(Turma, req.params.id).then(turma => {
+            turma.grupos.push(req.body.grupo)
+            repository
+            .create(turma)
+            .then(data => {
+                resolve({
+                    data: data
+                });
+            })
+            .catch(err => {
+                reject(err);
+            });
+        });
+    });
+}
