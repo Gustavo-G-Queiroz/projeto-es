@@ -13,7 +13,7 @@ exports.list = function (req, res) {
     });
 }
 
-exports.update = function (req, res) {
+exports.entrarGrupo = function (req, res) {
     turmaService.updateGrupo(req).then(turma =>{
         res.send(turma);
     });
@@ -21,6 +21,12 @@ exports.update = function (req, res) {
 
 exports.createGrupo = function (req, res) {
     turmaService.createGrupo(req).then(turma =>{
+        res.send(turma);
+    });
+}
+
+exports.sairGrupo = function (req, res) {
+    turmaService.sairGrupo(req).then(turma =>{
         res.send(turma);
     });
 }

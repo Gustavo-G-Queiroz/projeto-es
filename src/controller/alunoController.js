@@ -19,3 +19,8 @@ exports.find = function (req, res) {
     });
 }
 
+exports.login = function (req, res) {
+    alunoService.alunoLogin(req).then(response => {
+        res.send(response);
+    });
+}
