@@ -30,3 +30,9 @@ exports.sairGrupo = function (req, res) {
         res.send(turma);
     });
 }
+
+exports.find = function (req, res) {
+    turmaService.findTurma(req.params.id).then(turma =>{
+        res.send(turma);
+    });
+}
