@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var Turma = mongoose.model("Turma")
 const repository = require("../repository/repository");
+const alunoService = require('../service/alunoService');
 
 exports.createTurma = function (req) {
     return new Promise(function (resolve, reject) {
@@ -37,8 +38,16 @@ exports.updateGrupo = function (req) {
         repository.findById(Turma, req.params.idTurma).then(turma => {
             for(var i in turma.grupos){
                 if(turma.grupos[i].id == req.params.idGrupo){
-                    turma.grupos[i].alunos.push(req.body.aluno);
-                    break;
+                    if(turma.grupos[i].alunos.includes(req.body.aluno)){
+                        resolve({ status: 'error', error: 'Aluno já está no grupo'});
+                    }
+                    if(turma.grupos[i].alunos.length < turma.grupos[i].integrantes){
+                        turma.grupos[i].alunos.push(req.body.aluno);
+                        alunoService.updateAluno(req.params.idTurma, req.params.idGrupo, req.body.aluno)
+                        break;
+                    }else{
+                        resolve({ status: 'error', error: 'Grupo cheio'});
+                    }
                 }
             }
             repository
@@ -67,7 +76,7 @@ exports.createGrupo = function (req) {
                 });
             })
             .catch(err => {
-                reject(err);
+                console.log(err);
             });
         });
     });
@@ -79,6 +88,7 @@ exports.sairGrupo = function (req) {
             for(var i in turma.grupos){
                 if(turma.grupos[i].id == req.params.idGrupo){
                     turma.grupos[i].alunos = turma.grupos[i].alunos.filter(a => a != req.body.aluno);
+                    alunoService.updateAluno(req.params.idTurma, req.params.idGrupo, req.body.aluno)
                     break;
                 }
             }
@@ -90,7 +100,7 @@ exports.sairGrupo = function (req) {
                 });
             })
             .catch(err => {
-                reject(err);
+                console.log(err);
             });
         });
     });

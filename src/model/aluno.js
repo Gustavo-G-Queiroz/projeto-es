@@ -12,6 +12,11 @@ let PermsSchema = new Schema({
     banned: {type: Boolean, required: true, default: false},
 });
 
+let GrupoSchema = new Schema({
+    idTurma: {type: String, required: true},
+    _id: {type: String, required: true},
+})
+
 let AlunoSchema = new Schema({
     _id: {type: String, required: true, max: 11},
     nome: {type: String, required: true},
@@ -19,6 +24,7 @@ let AlunoSchema = new Schema({
     email: {type: String, required: true},
     comms: {type: CommsSchema, required: false},
     perms: {type: PermsSchema, required: true},
+    grupos: [{type: GrupoSchema, required: false}],
 }, { collection: 'aluno' });
 
 module.exports = mongoose.model('Aluno', AlunoSchema);
