@@ -30,7 +30,15 @@ exports.createAluno = function (req) {
                     });
                 })
                 .catch(err => {
-                    reject(err);
+                    if (err.code == 11000) {
+                        resolve({
+                            status: 'error', error: 'Usuário já existente.'
+                        })
+                    }
+                    resolve({
+                        status: 'error', error: 'Ocorreu uma falha no cadastro.'
+                    })
+
                 });
         });
     });
@@ -39,7 +47,6 @@ exports.createAluno = function (req) {
 exports.listAluno = function () {
     return repository.list(Aluno);
 }
-
 
 exports.findAluno = function (id) {
     return repository.findById(Aluno, id);
@@ -55,12 +62,47 @@ exports.alunoLogin = function (req) {
                         username: aluno.nome
                     }, segredoprojwt)
 
-                    resolve({ data: token });
+                    resolve({ status: 'ok', data: token });
                 }
                 resolve({ status: 'error', error: 'Usuário/senha inválido(s), tente novamente.' });
             });
         }).catch(err => {
-            reject({ status: 'error', error: 'Usuário/senha inválido(s), tente novamente.' });
+            resolve({ status: 'error', error: 'Usuário/senha inválido(s), tente novamente.' });
         });
     });
+}
+
+
+exports.updateAluno = function (idTurma, idGrupo, ra) {
+    return new Promise(function (resolve, reject) {
+        repository.findById(Aluno, ra).then(aluno => {
+            var grupo = {
+                'idTurma': idTurma,
+                '_id': idGrupo
+            };
+            for(var i in aluno.grupos){
+                if(aluno.grupos[i]._id == idGrupo){
+                    aluno.grupos = aluno.grupos.filter(g => g._id != grupo._id);
+                    break;
+                }else{
+                    aluno.grupos.push(grupo)
+                    break;
+                }
+            }
+            
+            
+            repository
+                .create(aluno)
+                .then(data => {
+                    resolve({
+                        data: data
+                    });
+                })
+                .catch(err => {
+                    resolve({
+                        status: 'error', error: 'Ocorreu uma falha no cadastro.'
+                    })
+                });
+        });
+    })
 }

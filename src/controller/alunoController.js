@@ -2,8 +2,8 @@ const alunoService = require('../service/alunoService');
 var mongoose = require("mongoose");
 
 exports.create = function (req, res) {
-    alunoService.createAluno(req).then(() => {
-        res.send("Registro realizado");
+    alunoService.createAluno(req).then(aluno => {
+        res.send(aluno);
     });
 };
 
