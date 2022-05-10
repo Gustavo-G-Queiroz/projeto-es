@@ -1,0 +1,47 @@
+<html lang="pt-br">
+
+<head>
+    <%- include('head') %>
+</head>
+
+<body>
+
+    <%- include('header') %>
+
+        <%- include('aside') %>
+
+            <main>
+
+                <div id="groups-available-message">
+                    <p>
+                        <%- grupo %> - <%- turma %>
+                                <input id="id-turma" type="hidden" value="<%- id %> ">
+                                <input id="id-grupo" type="hidden" value="<%- code %> ">
+                    </p>
+                </div>
+
+                <div class="info-group">
+                    <p class="info-title">Status</p>
+                    <p class="info-description">
+                        Privado
+                    </p>
+                </div>
+
+                <div class="info-group">
+                    <p class="info-title">Integrantes</p>
+                    <p class="info-description">
+                        Aluno 1 - 11201921170
+                    </p>
+                </div>
+
+                <a id="sair-do-grupo" href="">Sair do grupo</a>
+
+            </main>
+            </div>
+
+            <script src="/js/group-select2.js"></script>
+            <script src="/js/script.js"></script>
+
+</body>
+
+</html>

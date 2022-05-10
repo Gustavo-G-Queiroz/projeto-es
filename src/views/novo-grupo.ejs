@@ -1,0 +1,52 @@
+<html lang="pt-br">
+
+<head>
+    <%- include('head') %>
+        <link rel="stylesheet" href="/css/forms.css">
+</head>
+
+<body>
+
+    <%- include('header') %>
+
+        <%- include('aside') %>
+
+            <main>
+
+                <div id="groups-available-message">
+                    <p>Novo grupo</p>
+                </div>
+
+                <p class="messages">Crie agora um grupo novo para suas atividades acadêmicas!</p>
+
+                <form id="form-newgroup">
+                    <div class="input-group">
+                        <label for="turma">Turma</label>
+                        <select name="turma" id="turma-select"></select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="name">Nome do grupo</label>
+                        <input type="text" name="nome" id="name" placeholder="Insira o nome do grupo" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="integrantes">Número de integrantes</label>
+                        <input type="number" name="integrantes" id="integrantes" placeholder="1" required>
+                    </div>
+
+                    <div class="input-group">
+                        <button type="reset">Cancelar</button>
+                        <button type="submit" id="create-button">Criar</button>
+                    </div>
+                </form>
+
+            </main>
+            </div>
+
+            <script src="/js/create-group.js"></script>
+            <script src="/js/script.js"></script>
+
+</body>
+
+</html>

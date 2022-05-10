@@ -1,0 +1,54 @@
+:root {
+    --gray-1: #F2F2F2;
+    --gray-2: #E5E5E5;
+    --gray-3: #C4C4C4;
+
+    --yellow: #FFFB9E;
+    --green: #006633;
+}
+
+#form-newgroup {
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select {
+    width: 50%;
+    height: 40px;
+    border: none;
+    background: var(--gray-1);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+#form-newgroup .input-group:last-child {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#form-newgroup .input-group:last-child button {
+    width: 45%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid var(--green);
+    color: var(--green);
+    cursor: pointer;
+}
+
+#form-newgroup .input-group:last-child button#create-button {
+    background: var(--green);
+    color: #fff;
+}

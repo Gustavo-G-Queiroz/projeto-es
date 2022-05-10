@@ -1,19 +1,7 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group Finder UFABC</title>
-
-    <!-- link to css files -->
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/main-responsive.css">
-
-    <!-- font family Open Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <%- include('head-initial') %>
 </head>
 
 <body>
@@ -66,46 +54,11 @@
 
             <hr>
 
-            <p>Já tem uma conta? <a href="./login.ejs">Log in</a></p>
+            <p>Já tem uma conta? <a href="/login">Log in</a></p>
         </section>
     </main>
 
-    <script>
-        const form = document.getElementById('form-signup')
-        form.addEventListener('submit', registerUser)
-        async function registerUser(event) {
-            event.preventDefault()
-            const id = document.getElementById('ra').value
-            const email = document.getElementById('email').value
-            const nome = document.getElementById('name').value
-            const senha = document.getElementById('password').value
-            console.log(id)
-            
-            const result = await fetch('/aluno/create',{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    id,
-                    email,
-                    nome,   
-                    senha,
-                    perms: {
-                        admin: false,
-                        banned:false
-                    }
-                })
-            }   ).then((result)=>result.json())
-        
-            if (result.status === 'ok'){
-                alert("User created successfully!   ")
-
-            } else{
-                alert(result.error)
-            }
-        }
-    </script>
+    <script src="/js/sent-form-signup.js"></script>
 
 </body>
 

@@ -1,0 +1,57 @@
+<html lang="pt-br">
+
+<head>
+    <%- include('head') %>
+</head>
+
+<body>
+
+    <%- include('header') %>
+
+        <%- include('aside') %>
+
+            <main>
+
+                <div id="groups-available-message">
+                    <p>Grupos disponíveis em <%= grupos._id %> - <%= grupos.disciplina %>
+                    </p>
+                    <input type="hidden" value="<%= grupos._id %> ">
+                </div>
+
+                <a href="/novo-grupo" id="new-group-button">+ Novo grupo</a>
+
+                <div class="groups-list">
+                    <table id="group-table">
+                        <tbody>
+                            <% grupos.grupos.forEach(function(grupo) { %>
+                                <tr class="grupo">
+                                    <td class="grupo-tamanho">
+                                        <%= grupo.alunos.length + '/' + grupo.integrantes %>
+                                    </td>
+                                    <td class="grupo-nome">
+                                        <%= grupo.nome %>
+                                    </td>
+                                    <td class="grupo-owner">
+                                        <%= grupo.lider %>
+                                    </td>
+                                    <td class="grupo-request">
+                                        <p class="entrar">
+                                            <%= grupo.privado ? 'Solicitar' : 'Entrar' %>
+                                        </p>
+                                    </td>
+                                    <input type="hidden" value="<%= grupo._id %> ">
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+
+            </main>
+            </div>
+
+            <script src="/js/group-select.js"></script>
+            <script src="/js/script.js"></script>
+
+</body>
+
+</html>
