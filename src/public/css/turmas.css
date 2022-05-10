@@ -93,6 +93,11 @@ header {
     background: var(--gray-3);
 }
 
+#dropdown-profile a {
+    text-decoration: none;
+    color: #000;
+}
+
 .container {
     width: 100vw;
 }
@@ -115,6 +120,11 @@ aside {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #000;
 }
 
 .nav-menu .nav-item {
@@ -159,14 +169,20 @@ main {
     box-shadow: 0 0 2px var(--green);
 }
 
-.classes-list {
+.classes-list,
+.groups-list {
     margin: 10px 0 0 0;
     overflow-x: auto;
 }
 
-#class-table {
+.classes-list {
+    margin: 0;
+}
+
+#class-table,
+#group-table {
     width: 100%;
-    border-spacing: 0 .5rem;
+    border-spacing: 0 .8rem;
 }
 
 #class-table thead tr {
@@ -174,18 +190,85 @@ main {
 }
 
 #class-table thead tr th,
-#class-table tbody tr td {
+#class-table tbody tr td,
+#group-table tbody tr td {
     padding: 10px;
 }
 
-#class-table tbody tr td {
+#class-table tbody tr,
+#group-table tbody tr {
+    cursor: pointer;
+    transition: .3s;
+}
+
+#class-table tbody tr,
+#group-table tbody tr {
     background: var(--gray-1);
 }
 
-#class-table tbody tr td:first-child {
+#class-table tbody tr:hover,
+#group-table tbody tr:hover {
+    background: var(--gray-2);
+}
+
+#class-table tbody tr td:first-child,
+#group-table tbody tr td:first-child {
     border-radius: 5px 0 0 5px;
 }
 
-#class-table tbody tr td:last-child {
+#class-table tbody tr td:last-child,
+#group-table tbody tr td:last-child {
     border-radius: 0 5px 5px 0;
+}
+
+#groups-available-message {
+    width: 100%;
+    padding: 10px;
+
+    background: var(--green);
+    color: var(--gray-1);
+    border-radius: 5px;
+}
+
+#new-group-button {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--green);
+    margin: 10px 0 0 0;
+    display: inline-block;
+}
+
+.grupo-request {
+    text-align: right;
+    font-weight: bold;
+}
+
+.grupo-request a {
+    text-decoration: none;
+    color: #000;
+}
+
+.messages {
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.info-group {
+    margin: 10px 0;
+}
+
+.info-group .info-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.info-group .info-description {
+    background: var(--gray-1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.my-groups-list th {
+    text-align: left;
+    padding: 10px;
 }

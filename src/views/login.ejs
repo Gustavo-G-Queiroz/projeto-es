@@ -1,19 +1,7 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group Finder UFABC</title>
-
-    <!-- link to css files -->
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/main-responsive.css">
-
-    <!-- font family Open Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <%- include('head-initial') %>
 </head>
 
 <body>
@@ -33,7 +21,7 @@
             <h2>Log in</h2>
             <p>Encontre um grupo para suas atividades acadêmicas</p>
 
-            <form action="" id="form-signup">
+            <form action="" id="form-signin">
                 <div class="input-group">
                     <label for="user" class="sr-only">Usuário</label>
                     <input type="text" name="" id="user" placeholder="Usuário">
@@ -47,15 +35,15 @@
                 <div class="input-group">
                     <button type="submit" id="log-in-button">Log in</button>
                 </div>
-
-                <p id="reset-password">Esqueci a senha</p>
             </form>
 
             <hr>
 
-            <p>Não é cadastrado? <a href="./index.html">Sign up</a></p>
+            <p>Não é cadastrado? <a href="/">Sign up</a></p>
         </section>
     </main>
+
+    <script src="/js/sent-form-signin.js"></script>
 
 </body>
 

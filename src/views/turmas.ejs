@@ -1,34 +1,47 @@
-<%- include('header') %>
+<html lang="pt-br">
 
-    <%- include('aside') %>
+<head>
+    <%- include('head') %>
+</head>
 
-        <main>
-            <div class="search-classes">
-                <input type="search" name="" id="search-input" placeholder="Pesquise por disciplinas">
+<body>
+
+    <%- include('header') %>
+
+        <%- include('aside') %>
+
+            <main>
+                <div class="classes-list">
+                    <table id="class-table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nome</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% turmas.forEach(function(turma) { %>
+                                <tr class="disciplina">
+                                    <td class="disciplina-codigo">
+                                        <%- turma._id %>
+                                    </td>
+                                    <td class="disciplina-nome">
+                                        <%- turma.disciplina %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+
+            </main>
             </div>
 
-            <div class="classes-list">
-                <table id="class-table">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nome</th>
-                        </tr>
-                    </thead>
+            <script src="/js/click-disciplina.js"></script>
 
-                    <tbody>
-                        <tr>
-                            <td>MA1MCTA022</td>
-                            <td>Engenharia de Software - A1 Matutino</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </main>
-        </div>
+            <script src="/js/script.js"></script>
 
-        <script src="/js/script.js"></script>
+</body>
 
-        </body>
-
-        </html>
+</html>

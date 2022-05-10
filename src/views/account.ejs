@@ -1,0 +1,47 @@
+<html lang="pt-br">
+
+<head>
+    <%- include('head') %>
+</head>
+
+<body>
+
+    <%- include('header') %>
+
+        <%- include('aside') %>
+
+            <main>
+
+                <div id="groups-available-message">
+                    <p>Minha Conta</p>
+                </div>
+
+                <div class="info-group">
+                    <p class="info-title">Nome</p>
+                    <p class="info-description">
+                        <%= name %>
+                    </p>
+                </div>
+
+                <div class="info-group">
+                    <p class="info-title">E-mail</p>
+                    <p class="info-description">
+                        <%= email %>
+                    </p>
+                </div>
+
+                <div class="info-group">
+                    <p class="info-title">RA</p>
+                    <p class="info-description">
+                        <%= ra %>
+                    </p>
+                </div>
+
+            </main>
+            </div>
+
+            <script src="/js/script.js"></script>
+
+</body>
+
+</html>
